@@ -12,6 +12,7 @@
     <artifactId>exchange</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>user-auth-poc</name>
+    <packaging>jar</packaging>
     <description>Crypto exchange user auth POC</description>
     <properties>
         <java.version>17</java.version>
@@ -43,29 +44,13 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-        <!--		<dependency>-->
-        <!--			<groupId>org.flywaydb</groupId>-->
-        <!--			<artifactId>flyway-core</artifactId>-->
-        <!--		</dependency>-->
-
-
-        <!--		<dependency>-->
-        <!--			<groupId>org.springframework.boot</groupId>-->
-        <!--			<artifactId>spring-boot-docker-compose</artifactId>-->
-        <!--			<scope>runtime</scope>-->
-        <!--			<optional>true</optional>-->
-        <!--		</dependency>-->
-        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
-        <!--		<dependency>-->
-        <!--			<groupId>org.postgresql</groupId>-->
-        <!--			<artifactId>postgresql</artifactId>-->
-        <!--			<scope>runtime</scope>-->
-        <!--		</dependency>-->
-
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <!--            <version>6.3.1.Final</version>-->
         </dependency>
 
         <dependency>
@@ -88,8 +73,8 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>2.2.224</version>
-            <scope>runtime</scope>
-            <!--			<scope>test</scope>-->
+            <!--            <scope>runtime</scope>-->
+            <scope>test</scope>
         </dependency>
 
         <dependency>
