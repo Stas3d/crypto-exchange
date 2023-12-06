@@ -14,7 +14,7 @@ public class AppTestConfiguration {
 
         DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
         dataSourceBuilder.driverClassName("org.h2.Driver");
-        dataSourceBuilder.url("jdbc:h2:mem:test");
+        dataSourceBuilder.url("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1");
         dataSourceBuilder.username("test");
         dataSourceBuilder.password("test");
         return dataSourceBuilder.build();
