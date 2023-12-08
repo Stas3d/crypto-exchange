@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
       file: scripts/create_users.sql
+  - include:
+      file: scripts/fill_users1.sql
