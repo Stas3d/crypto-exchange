@@ -19,7 +19,7 @@ public class UserMapperService {
                 .phone(user.getPhone())
                 .email(user.getEmail())
                 .name(user.getName())
-                .gender(user.getGender().name())
+//                .gender(user.getGender().name())
                 .role((grantedAuthority != null) ? grantedAuthority.toString() : "[]")
                 .build();
     }

@@ -16,9 +16,9 @@ import java.util.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", nullable = false)
-    private Long id;
+    private long id;
 
     @Column(name = "user_name", nullable = false, unique = true)
     private String name;
@@ -26,8 +26,18 @@ public class User {
     @Column(name = "user_email", nullable = false, unique = true)
     private String email;
 
+    @Column(name = "user_phone")
+    private String phone;
+
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "user_role")
+    private Role role;
+
     @Column(name = "user_pwd", nullable = false)
     private String pwd;
+
+    @Column(name = "user_authorities")
+    private String authorities;
 
     @Column(name = "user_last_pwd_changed")
     private Date pwdChanged;
@@ -35,34 +45,14 @@ public class User {
     @Column(name = "secondary_email", unique = true)
     private String secEmail;
 
-    @Column(name = "created_on")
-    private Date createdOn;
-
-    @Column(name = "user_phone")
-    private String phone;
+//    @Column(name = "created_on")
+//    private Date createdOn;
 
     @Column(name = "phone_verified")
     private Boolean verifiedPhone;
 
-    @Column(name = "user_birthday")
-    private Date birthday;
-
     @Column(name = "user_gender")
     private Gender gender;
-
-    //    @Column(name = "user_role")
-//    @ElementCollection(targetClass = Role.class)
-//    private Set<Role> roles = new HashSet<>();
-
-    @Enumerated(value = EnumType.STRING)
-    @Column(name = "role")
-    private Role role;
-
-    @Column(name = "user_status")
-    private Status status;
-
-    @Column(name = "user_authorities")
-    private String authorities;
 
     @Column(name = "account_non_expired")
     private Boolean accountNonExpired;
@@ -75,10 +65,6 @@ public class User {
 
     @Column(name = "user_enabled")
     private Boolean enabled;
-
-//    public void addRole(Role role) {
-//        roles.add(role);
-//    }
 
     public User(String name,
                 String email,
@@ -93,8 +79,7 @@ public class User {
         this.gender = Gender.find(gender).orElse(Gender.OTHER);
         this.role = Role.find(role).orElse(Role.DEFAULT);
         this.pwd = pwd;
-        this.createdOn = new Date();
-        this.status = Status.ACTIVE;
+//        this.createdOn = new Date();
         this.verifiedPhone = Boolean.FALSE;
         this.pwdChanged = new Date();
         this.accountNonExpired = Boolean.TRUE;

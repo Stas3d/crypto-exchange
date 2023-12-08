@@ -12,7 +12,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@DataJpaTest
+@DataJpaTest(properties = {
+        "spring.liquibase.enabled=false"
+})
 @Import(AppTestConfiguration.class)
 public class UserRepositoryTest {
 
@@ -22,15 +24,15 @@ public class UserRepositoryTest {
     @Test
     public void whenCalledSave_thenCorrectNumberOfUsers() {
         userRepository.save(new User("Bob", "bob@domain.com", null, "MALE", "ADMIN", "pwd"));
-        userRepository.save(new User("Nic", "nic@domain.com", null, null, null, "pwd"));
+        userRepository.save(new User("Nic", "nic@domain.com", null, null, "MALE", "pwd"));
         var users = (List<User>) userRepository.findAll();
         assertEquals(users.size(), 2);
     }
 
     @Test
     public void testFindMethod() {
-        userRepository.save(new User("Nic", "nic@domain.com", "+380671234567", "DOG",
-                "OTHER", "123"));
+        userRepository.save(new User("Nic", "nic@domain.com", "+380671234567", "MALE", "DOG",
+                "123"));
         var test = userRepository.findByName("Nic");
         assertEquals(test.size(), 1);
     }
