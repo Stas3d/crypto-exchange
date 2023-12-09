@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS users (
       user_gender VARCHAR(255),
       phone_verified BOOLEAN,
 	  secondary_email VARCHAR(255) UNIQUE,
+      created_on TIMESTAMP default current_timestamp,
 	  user_last_pwd_changed TIMESTAMP,
       account_non_expired BOOLEAN,
       account_non_locked BOOLEAN,

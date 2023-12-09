@@ -45,8 +45,8 @@ public class User {
     @Column(name = "secondary_email", unique = true)
     private String secEmail;
 
-//    @Column(name = "created_on")
-//    private Date createdOn;
+    @Column(name = "created_on")
+    private Date createdOn;
 
     @Column(name = "phone_verified")
     private Boolean verifiedPhone;
@@ -79,7 +79,7 @@ public class User {
         this.gender = Gender.find(gender).orElse(Gender.OTHER);
         this.role = Role.find(role).orElse(Role.DEFAULT);
         this.pwd = pwd;
-//        this.createdOn = new Date();
+        this.createdOn = new Date();
         this.verifiedPhone = Boolean.FALSE;
         this.pwdChanged = new Date();
         this.accountNonExpired = Boolean.TRUE;
