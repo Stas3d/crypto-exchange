@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 
 import java.util.List;
 
-
 @ControllerAdvice
 public class ExceptionHandler {
 
