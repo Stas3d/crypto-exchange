@@ -1,13 +1,16 @@
 package com.algotrader.exchange.controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class ApiController {
 
-    @GetMapping(value = "/all", produces = "application/json")
+    @GetMapping(value = "/public", produces = "application/json")
     @ResponseBody
     public ResponseEntity<String> getAll() {
 

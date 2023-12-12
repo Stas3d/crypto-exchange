@@ -4,7 +4,11 @@ import com.algotrader.exchange.dto.UserDto;
 import com.algotrader.exchange.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -25,7 +29,7 @@ public class UserController {
                 .body(all);
     }
 
-    @GetMapping(value = "all", produces = "application/json")
+    @GetMapping(value = "/all", produces = "application/json")
     public ResponseEntity<List<UserDto>> getUsers() {
 
         var all = service.findAll();
