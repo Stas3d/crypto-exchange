@@ -1,7 +1,6 @@
 package com.algotrader.exchange.service;
 
 import com.algotrader.exchange.dto.UserDto;
-import com.algotrader.exchange.entity.User;
 import com.algotrader.exchange.exception.NoUserException;
 import com.algotrader.exchange.repository.UserRepository;
 import lombok.AllArgsConstructor;

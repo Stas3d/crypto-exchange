@@ -1,6 +1,7 @@
 package com.algotrader.exchange.service;
 
 import com.algotrader.exchange.dto.UserDto;
+import com.algotrader.exchange.entity.Gender;
 import com.algotrader.exchange.entity.User;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class UserMapperService {
                 .phone(user.getPhone())
                 .email(user.getEmail())
                 .name(user.getName())
-//                .gender(user.getGender().name())
+                .gender((user.getGender() != null) ? user.getGender().name() : Gender.OTHER.name())
                 .role((grantedAuthority != null) ? grantedAuthority.toString() : "[]")
                 .build();
     }
